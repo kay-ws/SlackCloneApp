@@ -18,8 +18,10 @@ export default {
     if (this.keyDownedForJPConversion(event)) { return }
     const channelId = this.$route.params.id
       db.collection('channels').doc(channelId)
-        .collection('messages').add({ text: this.text })
-          .then(() => {
+        .collection('messages').add({
+           text: this.text,
+           createAt: new Date().getTime()
+        }).then(() => {
             this.text = null
           })
     },
