@@ -1,10 +1,10 @@
 <template>
   <div class="chat-container">
-    <div class="thumbnail-container">
+<!--    <div class="thumbnail-container">
       <img v-bind:src="message.user.thumbnail" />
-    </div>
+    </div>-->
     <div class="message-container">
-      <div class="user-name">{{ displayName }}</div>
+<!--      <div class="user-name">{{ displayName }}</div>-->
       <div class="message">{{ message.text }}</div>
     </div>
   </div>
@@ -12,8 +12,9 @@
 
 <script>
 export default {
+  props: ['message'],
   data() {
-    return {
+    return  {
       message: {
         text: '今日も良い天気ですね',
         user: {

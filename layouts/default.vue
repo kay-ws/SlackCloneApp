@@ -2,7 +2,7 @@
   <div class="app-layout">
     <div class="sidebar">
       <p>チャンネル一覧</p>
-      <p v-for="channel in channels">
+      <p v-for="channel in channels" v-bind:key="channel.name">
         <nuxt-link :to="`/channels/${channel.id}`">{{ channel.name }}</nuxt-link>
       </p>
     </div>
@@ -28,7 +28,6 @@ export default {
           this.channels.push({id: doc.id, ...doc.data()})
         })
       })
-    console.log(this.channels)
   }
 }
 </script>
